@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pan Don Togno — Masa madre artesanal en Quito</title>
+  <meta name="description" content="Pan de masa madre artesanal, horneado a diario en Quito. Pedidos rápidos por WhatsApp. Entregas en Cumbayá, Tumbaco, Tababela, Puembo y Pifo." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pan Don Togno — Masa madre artesanal" />
+  <meta property="og:description" content="Pan de masa madre artesanal, horneado a diario en Quito. Pedidos por WhatsApp." />
+  <meta property="og:image" content="/imagenes/og-pan.jpg" />
+  <meta property="og:locale" content="es_EC" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    :root{
+      --bg:#f0faff;
+      --brand:#0ea5e9; /* sky-500 */
+      --brand-600:#0284c7; /* sky-600 */
+      --brand-700:#0369a1; /* sky-700 */
+      --ink:#1f2937; /* gray-800 */
+      --muted:#6b7280; /* gray-500 */
+      --card:#ffffff;
+      --ring: 0 0 0 3px rgba(14,165,233,.25);
+      --radius: 16px;
+      --shadow: 0 10px 20px rgba(2,132,199,.15);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--ink); background:var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    img{max-width:100%; display:block}
+
+    /* Header / Nav */
+    header{
+      position:sticky; top:0; z-index:50;
+      background:linear-gradient(180deg, #0ea5e9 0%, #38bdf8 100%);
+      color:white; box-shadow: 0 6px 16px rgba(0,0,0,.12);
+    }
+    .nav{max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:14px 18px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+    .brand img{width:40px; height:40px; border-radius:999px; box-shadow:0 2px 8px rgba(0,0,0,.25)}
+    .brand span{font-size:1.1rem; letter-spacing:.2px}
+    .cta{display:flex; gap:10px; align-items:center}
+    .btn, button.btn{appearance:none; border:none; cursor:pointer; text-decoration:none; font-weight:700; padding:10px 14px; border-radius:999px; background:var(--card); color:var(--brand-700); box-shadow:0 4px 10px rgba(0,0,0,.12); transition:transform .12s ease, box-shadow .12s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn:focus-visible{outline:none; box-shadow:var(--ring)}
+    .ghost{background:transparent; color:#fff; border:2px solid rgba(255,255,255,.7)}
+
+    /* Hero */
+    .hero{max-width:1100px; margin:24px auto; padding:8px 18px 24px; text-align:center}
+    .hero h1{margin:.2rem 0 .5rem; font-size:clamp(1.6rem, 2.4vw + 1rem, 2.6rem)}
+    .hero p{margin:0 auto; max-width:800px; color:#073b4c; opacity:.9}
+    .hero .hero-img{margin:18px auto 0; border-radius:24px; overflow:hidden; box-shadow:var(--shadow)}
+    .hero .hero-img img{width:100%; height:auto}
+
+    /* Historia */
+    .historia{max-width:1000px; margin:0 auto; padding: 0 18px 8px}
+    .card{background:var(--card); border-radius:var(--radius); box-shadow:0 6px 18px rgba(3,105,161,.12); padding:22px}
+    .card h2{color:var(--brand-700); margin-top:0}
+    .card p{color:#334155}
+
+    /* Productos */
+    .productos{max-width:1100px; margin:26px auto; padding:0 18px}
+    .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:18px}
+    .producto{background:var(--card); border-radius:var(--radius); box-shadow:0 6px 18px rgba(2,132,199,.12); overflow:hidden; display:flex; flex-direction:column}
+    .producto picture, .producto img{aspect-ratio:4/3; object-fit:cover}
+    .producto .content{padding:16px}
+    .producto h3{margin:0 0 6px; color:var(--brand-700)}
+    .producto p{margin:0 0 12px; color:var(--muted)}
+    .controls{display:flex; align-items:center; gap:10px; margin-top:auto; padding:0 16px 16px}
+    .qty{display:inline-flex; align-items:center; gap:8px; background:#f1f5f9; border-radius:999px; padding:6px 10px}
+    .qty input{width:54px; border:none; background:transparent; text-align:center; font-weight:700; font-size:15px}
+    .qty button{border:none; background:transparent; font-size:18px; line-height:1; width:26px; height:26px; cursor:pointer}
+    .qty button:focus-visible{outline:none; box-shadow:var(--ring)}
+    .buy{margin-left:auto}
+
+    /* Footer */
+    footer{margin-top:34px; background:linear-gradient(0deg, #0ea5e9 0%, #38bdf8 100%); color:white}
+    .foot{max-width:1100px; margin:0 auto; padding:22px 18px; display:grid; gap:8px}
+    .foot small{opacity:.9}
+
+    /* Floating WA */
+    .wa-float{position:fixed; right:16px; bottom:16px; z-index:60}
+    .wa-float a{display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#fff; padding:12px 16px; border-radius:999px; font-weight:800; box-shadow:0 10px 16px rgba(37,211,102,.25)}
+    .wa-float a:focus-visible{outline:none; box-shadow:0 0 0 4px rgba(37,211,102,.35)}
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important}
+    }
+  </style>
+  
+  <!-- Schema.org minimal -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Pan Don Togno",
+    "url":"https://pandongtogno.example/",
+    "logo":"https://pandongtogno.example/logo.png",
+    "areaServed":["Quito","Cumbayá","Tumbaco","Tababela","Puembo","Pifo"],
+    "sameAs":[]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#productos" style="position:absolute;left:-1000px;top:auto;width:1px;height:1px;overflow:hidden">Saltar al contenido</a>
+
+  <header role="banner">
+    <nav class="nav" aria-label="principal">
+      <a href="#" class="brand" aria-label="Inicio">
+        <img src="/imagenes/mi-logo.png" alt="Logo Pan Don Togno" loading="lazy" />
+        <span>Pan Don Togno</span>
+      </a>
+      <div class="cta">
+        <a class="btn ghost" href="#productos">Ver productos</a>
+        <a class="btn" href="https://wa.me/593995192237?text=%C2%A1Hola!%20Quiero%20informaci%C3%B3n%20sobre%20sus%20panes%20de%20masa%20madre." target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- Hero -->
+    <section class="hero" aria-label="Imagen destacada y titular">
+      <h1>Pan de masa madre, horneado a diario</h1>
+      <p>Pan de fermentación larga, sin aditivos, con corteza crocante y miga húmeda. Pedidos rápidos por WhatsApp. Entregamos en Cumbayá, Tumbaco, Tababela, Puembo y Pifo.</p>
+      <div class="hero-img">
+        <img src="imagenes/horneando.jpg" alt="Horneando pan artesanal en horno de piedra" loading="eager" />
+      </div>
+    </section>
+
+    <!-- Historia -->
+    <section class="historia" aria-label="Nuestra historia">
+      <article class="card">
+        <h2>Nuestra historia</h2>
+        <p>Pan Don Togno nace de una obsesión por la calidad: harinas seleccionadas, masa madre viva y procesos precisos inspirados en panadería artesanal europea. Horneamos a diario y servimos a cafeterías de especialidad y hogares de la zona Cumbayá–Tumbaco.</p>
+        <p>Cuidamos cada detalle de hidratación, tiempos y temperatura para que recibas un pan honesto: corteza bien caramelizada, aroma a cereal y una miga elástica y jugosa.</p>
+      </article>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos" class="productos" aria-label="Catálogo">
+      <div class="grid">
+        <!-- Producto 1 -->
+        <article class="producto" data-name="Pan 1500 g" data-code="PAN1500">
+          <picture>
+            <img src="imagenes/pan-1500.jpg" alt="Pan grande de 1500 gramos, corteza dorada" loading="lazy" />
+          </picture>
+          <div class="content">
+            <h3>Pan 1500 g</h3>
+            <p>Corteza crujiente y miga húmeda. Ideal para familia o restaurante.</p>
+          </div>
+          <div class="controls">
+            <div class="qty" aria-label="Cantidad">
+              <button type="button" class="dec" aria-label="Disminuir">−</button>
+              <input inputmode="numeric" pattern="[0-9]*" aria-label="Cantidad" class="input" value="1" />
+              <button type="button" class="inc" aria-label="Aumentar">+</button>
+            </div>
+            <a class="btn buy" href="#" data-wa>🛒 Pedir</a>
+          </div>
+        </article>
+
+        <!-- Producto 2 -->
+        <article class="producto" data-name="Croissant de mantequilla" data-code="CROI1">
+          <picture>
+            <img src="imagenes/croissant.jpg" alt="Croissant de mantequilla, hojaldre laminado" loading="lazy" />
+          </picture>
+          <div class="content">
+            <h3>Croissant de mantequilla</h3>
+            <p>Laminado a mano: capas finas, exterior hojaldrado, interior tierno.</p>
+          </div>
+          <div class="controls">
+            <div class="qty" aria-label="Cantidad">
+              <button type="button" class="dec" aria-label="Disminuir">−</button>
+              <input inputmode="numeric" pattern="[0-9]*" aria-label="Cantidad" class="input" value="6" />
+              <button type="button" class="inc" aria-label="Aumentar">+</button>
+            </div>
+            <a class="btn buy" href="#" data-wa>🛒 Pedir</a>
+          </div>
+        </article>
+
+        <!-- Producto 3 -->
+        <article class="producto" data-name="Pan integral" data-code="PANINT">
+          <picture>
+            <img src="imagenes/pan-integral.jpg" alt="Pan integral de masa madre" loading="lazy" />
+          </picture>
+          <div class="content">
+            <h3>Pan integral</h3>
+            <p>Harinas enteras, sabor profundo y fibra natural.</p>
+          </div>
+          <div class="controls">
+            <div class="qty" aria-label="Cantidad">
+              <button type="button" class="dec" aria-label="Disminuir">−</button>
+              <input inputmode="numeric" pattern="[0-9]*" aria-label="Cantidad" class="input" value="1" />
+              <button type="button" class="inc" aria-label="Aumentar">+</button>
+            </div>
+            <a class="btn buy" href="#" data-wa>🛒 Pedir</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="foot">
+      <strong>© <span id="year"></span> Pan Don Togno</strong>
+      <small>Pedidos por WhatsApp al <a href="https://wa.me/593995192237" target="_blank" rel="noopener">+593 99 519 2237</a>. Horneamos de lunes a sábado.</small>
+    </div>
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <div class="wa-float" aria-hidden="false">
+    <a href="https://wa.me/593995192237?text=%C2%A1Hola!%20Quisiera%20hacer%20un%20pedido." target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
+      <!-- Simple WA icon SVG -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.5 0 .2 5.3.2 11.86c0 2.09.55 4.15 1.6 5.96L0 24l6.34-1.65a11.76 11.76 0 0 0 5.72 1.45h.01c6.56 0 11.86-5.3 11.86-11.86a11.8 11.8 0 0 0-3.41-8.46ZM12.06 21.3h-.01a9.44 9.44 0 0 1-4.81-1.32l-.35-.2-3.76.98 1-3.66-.23-.37a9.44 9.44 0 1 1 8.16 4.57Zm5.18-7.05c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.27-.74.91-.9 1.1-.17.2-.33.22-.6.08-.28-.14-1.17-.43-2.23-1.38-.83-.74-1.39-1.65-1.55-1.93-.16-.27-.02-.42.12-.56.12-.12.28-.33.42-.5.14-.17.19-.3.28-.5.09-.2.05-.37-.02-.52-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.49-.64-.5l-.55-.01c-.19 0-.51.07-.78.36-.27.3-1.02 1-1.02 2.43 0 1.43 1.05 2.8 1.2 2.99.14.2 2.06 3.15 4.99 4.41.7.3 1.24.48 1.67.61.7.22 1.34.19 1.85.12.56-.08 1.66-.68 1.9-1.33.24-.66.24-1.23.17-1.33-.07-.1-.25-.17-.53-.31Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+
+  <script>
+    // Año dinámico en footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lógica de cantidades y WhatsApp
+    const phone = '593995192237';
+    const items = document.querySelectorAll('.producto');
+
+    items.forEach(card => {
+      const dec = card.querySelector('.dec');
+      const inc = card.querySelector('.inc');
+      const input = card.querySelector('.input');
+      const buy = card.querySelector('[data-wa]');
+
+      const clamp = (v) => Math.min(99, Math.max(1, parseInt(v || '1', 10)));
+      const name = card.getAttribute('data-name');
+      const code = card.getAttribute('data-code');
+
+      dec.addEventListener('click', () => { input.value = clamp((parseInt(input.value,10)||1)-1); });
+      inc.addEventListener('click', () => { input.value = clamp((parseInt(input.value,10)||1)+1); });
+      input.addEventListener('input', () => { input.value = input.value.replace(/\D/g,'').slice(0,2); });
+      input.addEventListener('blur', () => { input.value = clamp(input.value); });
+
+      buy.addEventListener('click', (e) => {
+        e.preventDefault();
+        const qty = clamp(input.value);
+        const base = `Hola, quiero pedir ${qty} × ${name} (código ${code}).`;
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(base)}%20%0AEntrega:%20Cumbay%C3%A1/Tumbaco%20%7C%20Retiro%20en%20tienda%3F`;
+        window.open(url, '_blank', 'noopener');
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
